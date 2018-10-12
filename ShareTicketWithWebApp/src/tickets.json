@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "owner": "0xce67e2ab70671e5d0b8499c07e2e6cdb6f75ed12",
+    "name": "KVV Karte 2 Waben Monat",
+    "picture": "images/qrcode.png",
+    "startDate": "01.10.2018",
+    "endDate": "31.10.2018",
+    "returnDate": "26.10.2018"
+  },
+  {
+    "id": 1,
+    "owner": "0x1ab79ce0e17faa271990179e85706bf5b2597a16",
+    "name": "RVF RegioKarte Monat",
+    "picture": "images/qrcode.png",
+    "startDate": "01.10.2018",
+    "endDate": "31.10.2018",
+    "returnDate": "15.10.2018"
+  }  
+]
+
+
