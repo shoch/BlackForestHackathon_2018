@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\build\\contracts",
+    "\\contracts",
+    "\\migrations",
+    "\\test"
+  ],
+  "SelectedNode": "\\truffle.js",
+  "PreviewInSolutionExplorer": false
+}
