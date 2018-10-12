@@ -9,7 +9,6 @@ npm install -g truffle
 
 
 ## build
-Paragraph 2
 ```
 truffle compile 
 ```
@@ -17,14 +16,17 @@ truffle compile
 
 ## deploy 
 
-(run testrpc first second shell)
+### powershell 1
+```
+testrpc
+```
+### powershell 2
 ```
 truffle migrate 
 ```
 
 
 ## test
-
 ```
 truffle console
 var shareTicket
