@@ -5,6 +5,8 @@ pragma solidity ^0.4.4;
 
 contract ProductsBlob{
 
+    enum LoanStatus {  Booked, Lent, Returned, Failed }
+
     constructor() public
     {  
         AddProduct(0xabd49c5238abbf0b5f07ce6f357f3b871d33f045,"RegioKarte");
@@ -19,13 +21,16 @@ contract ProductsBlob{
         AddOffer(3,"3.10.2018","12.10.2018",2000);
     } 
 
+    
+
     struct Loan{
         //uint ProductId;
         uint OfferId;
         uint LoanId;
         string Start;
         string End;
-        address User;  
+        address User; 
+        LoanStatus Status;  
     }
 
     struct Offer{
@@ -76,14 +81,15 @@ contract ProductsBlob{
         OffersCount = OffersCount + 1;
     }
 
-    function AddLoan( uint offerPos, string startTime, string endTime, address user) public
+    function AddLoan( uint offerPos, string startTime, string endTime, address user, LoanStatus loanStatus) public
     {        
         Loan memory newLoan;
         newLoan.Start = startTime;
         newLoan.End = endTime;
         newLoan.User = user;   
         newLoan.OfferId = offerPos;
-        newLoan.LoanId = LoansCount;       
+        newLoan.LoanId = LoansCount;    
+        newLoan.Status = loanStatus;   
         
         Loans[LoansCount] = newLoan;
         LoansCount = LoansCount + 1;
@@ -93,7 +99,7 @@ contract ProductsBlob{
         Offer memory o = Offers[posOffer];
         Product memory p = Products[o.OfferId];
 
-        return (o.ProductId, o.OfferId, p.Owner, p.ProductName ,o.Start,o.End);
+        return (o.ProductId, o.OfferId, p.Owner, p.ProductName, o.Start, o.End);
     }
 
     
@@ -107,7 +113,29 @@ contract ProductsBlob{
         //Product memory p = Products[o.OfferId];
 
         //return (1, p.ProductName,p.Owner,o.Start,o.End);
-    }*/   
+    }*/ 
+
+    /* function PassOn(uint offerPos, string startTime, string endTime) public  //secret als param; User auslesen
+    {
+        LoanStatus status;
+        if(msg.sender == Products[Offers[offerPos].LoanId].owner)
+        {
+            status = LoanStatus.Returned;
+        }
+        else if(//not Exists offer)
+        {
+            AddLoan(offerPos,startTime,endTime,msg.sender, LoanStatus.Booked);        
+        }
+        else if(//Exists offer user != owner )
+        {
+            status = LoanStatus.Lent;
+        }       
+    }
+
+    function GetLoanBy(offerPos,startTime,endTime) public view returns (Loan)
+    {
+
+    }*/
 
     function GetOfferCount() public view returns (uint){
         return OffersCount; 
