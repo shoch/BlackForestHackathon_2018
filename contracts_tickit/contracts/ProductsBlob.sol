@@ -89,11 +89,11 @@ contract ProductsBlob{
         LoansCount = LoansCount + 1;
     }
 
-    function GetOfferBy(uint posOffer) public view returns (uint, uint, string, address, string, string){    
+    function GetOfferBy(uint posOffer) public view returns (uint, uint, address, string, string, string){    
         Offer memory o = Offers[posOffer];
         Product memory p = Products[o.OfferId];
 
-        return (o.ProductId, o.OfferId, p.ProductName,p.Owner,o.Start,o.End);
+        return (o.ProductId, o.OfferId, p.Owner, p.ProductName ,o.Start,o.End);
     }
 
     
@@ -102,22 +102,22 @@ contract ProductsBlob{
         return (p.ProductId, p.ProductName,p.Owner);
     }
    
-    /*function GetLoansBy(uint posLoan) public view returns (uint, string, address, string, string){    
+    /*function GetLoanBy(uint posLoan) public view returns (uint, string, address, string, string){    
         //Offer memory o = Offers[posOffer];
         //Product memory p = Products[o.OfferId];
 
         //return (1, p.ProductName,p.Owner,o.Start,o.End);
     }*/   
 
-    function GetOffersCount() public view returns (uint){
+    function GetOfferCount() public view returns (uint){
         return OffersCount; 
     }
     
-    function GetProductsCount() public view returns (uint){
+    function GetProductCount() public view returns (uint){
         return ProductsCount; 
     }
 
-    function GetLoansCount() public view returns (uint){
+    function GetLoanCount() public view returns (uint){
         return LoansCount; 
     }
     
