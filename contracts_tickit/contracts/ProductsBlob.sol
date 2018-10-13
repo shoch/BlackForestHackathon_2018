@@ -95,7 +95,7 @@ contract ProductsBlob{
     function GetOfferBy(uint posOffer) public view returns (uint, uint, address, string, string, string){    
         Offer memory o = Offers[posOffer];
         Product memory p = Products[o.ProductId];
-
+//nochmal
         return (o.ProductId, o.OfferId, p.Owner, p.ProductName, o.Start, o.End);
     }
 
