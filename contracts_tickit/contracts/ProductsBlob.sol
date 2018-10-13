@@ -20,37 +20,45 @@ contract ProductsBlob{
     } 
 
     struct Loan{
+        //uint ProductId;
+        uint OfferId;
+        uint LoanId;
         string Start;
         string End;
-        address User;
+        address User;  
     }
 
     struct Offer{
+        uint ProductId; 
+        uint OfferId; 
         string Start;
         string End;
-        uint PricePerDay;   
-        mapping(uint =>Loan) Loans;
-        uint LoansCount;     
+        uint PricePerDay; 
     }
 
     struct Product{
+        uint  ProductId; 
         string ProductName;
-        address Owner;
-        mapping(uint =>Offer) Offers;
-        uint OffersCount;     
+        address Owner;                
     }
     
 
     mapping (uint => Product) Products;  
     uint ProductsCount;
 
+    mapping(uint =>Offer) Offers;
+    uint OffersCount;  
+
+    mapping(uint =>Loan) Loans;
+    uint LoansCount;
+
     function AddProduct(address owner,string productName) public
     {
-
         Product memory newProduct;
         newProduct.ProductName = productName;
         newProduct.Owner = owner;
-        
+        newProduct.ProductId = ProductsCount;
+
         Products[ProductsCount] = newProduct;
         ProductsCount = ProductsCount + 1;
     }
@@ -61,31 +69,56 @@ contract ProductsBlob{
         newOffer.Start = startTime;
         newOffer.End = endTime;
         newOffer.PricePerDay = pricePerDay;   
+        newOffer.ProductId = productPos;
+        newOffer.OfferId = OffersCount;
 
-        Products[productPos].Offers[Products[productPos].OffersCount] = newOffer;
-        Products[productPos].OffersCount = Products[productPos].OffersCount + 1;
+        Offers[OffersCount] = newOffer;
+        OffersCount = OffersCount + 1;
     }
 
-    function AddLoan(uint productPos, uint offerPos, string startTime, string endTime, address user) public
+    function AddLoan( uint offerPos, string startTime, string endTime, address user) public
     {        
         Loan memory newLoan;
         newLoan.Start = startTime;
         newLoan.End = endTime;
         newLoan.User = user;   
-
-        Product storage prod = Products[productPos];
-        Offer storage off = prod.Offers[offerPos];
-        off.Loans[off.LoansCount] = newLoan;
-        off.LoansCount = off.LoansCount + 1;
+        newLoan.OfferId = offerPos;
+        newLoan.LoanId = LoansCount;       
+        
+        Loans[LoansCount] = newLoan;
+        LoansCount = LoansCount + 1;
     }
 
-    function GetOfferBy(uint pos) public view returns (uint, string, address, string, string){    
-        return (1,"productName",0xce67e2ab70671e5d0b8499c07e2e6cdb6f75ed12,"1.10.2018","30.10.2018");
+    function GetOfferBy(uint posOffer) public view returns (uint, uint, string, address, string, string){    
+        Offer memory o = Offers[posOffer];
+        Product memory p = Products[o.OfferId];
+
+        return (o.ProductId, o.OfferId, p.ProductName,p.Owner,o.Start,o.End);
     }
+
+    
+    function GetProductBy(uint posProduct) public view returns (uint, string, address){    
+        Product memory p = Products[posProduct];
+        return (p.ProductId, p.ProductName,p.Owner);
+    }
+   
+    /*function GetLoansBy(uint posLoan) public view returns (uint, string, address, string, string){    
+        //Offer memory o = Offers[posOffer];
+        //Product memory p = Products[o.OfferId];
+
+        //return (1, p.ProductName,p.Owner,o.Start,o.End);
+    }*/   
 
     function GetOffersCount() public view returns (uint){
-        return 2; // offers count nicht offerscount -1
+        return OffersCount; 
     }
     
+    function GetProductsCount() public view returns (uint){
+        return ProductsCount; 
+    }
+
+    function GetLoansCount() public view returns (uint){
+        return LoansCount; 
+    }
     
 }
