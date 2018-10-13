@@ -1,11 +1,12 @@
 //solium-disable linebreak-style
 //solium-disable max-len
 
+pragma experimental ABIEncoderV2;
 pragma solidity ^0.4.4;
 
 contract ProductsBlob{
 
-    enum LoanStatus {  Booked, Lent, Returned, Failed }
+    enum LoanStatus {  Booked, Lent, Returned, PassedOn, Failed }
 
     constructor() public
     {  
@@ -95,7 +96,7 @@ contract ProductsBlob{
     function GetOfferBy(uint posOffer) public view returns (uint, uint, address, string, string, string){    
         Offer memory o = Offers[posOffer];
         Product memory p = Products[o.ProductId];
-//nochmal
+
         return (o.ProductId, o.OfferId, p.Owner, p.ProductName, o.Start, o.End);
     }
 
@@ -104,35 +105,62 @@ contract ProductsBlob{
         Product memory p = Products[posProduct];
         return (p.ProductId, p.ProductName,p.Owner);
     }
-   
-    /*function GetLoanBy(uint posLoan) public view returns (uint, string, address, string, string){    
-        //Offer memory o = Offers[posOffer];
-        //Product memory p = Products[o.OfferId];
 
-        //return (1, p.ProductName,p.Owner,o.Start,o.End);
-    }*/ 
-
-    /* function PassOn(uint offerPos, string startTime, string endTime) public  //secret als param; User auslesen
+    function Reserve(uint offerId, string startTime, string endTime) public
     {
-        LoanStatus status;
-        if(msg.sender == Products[Offers[offerPos].LoanId].owner)
+        AddLoan(offerId, startTime, endTime, msg.sender, LoanStatus.Booked);   
+    }
+
+    function PassOn(uint offerId, address startTime, string endTime) public  //secret als param; User auslesen
+    {
+        // alter user 
+        // Lent
+       /* LoanStatus status;
+        bool LoanExists = ExistLoanBy(offerId,startTime,endTime);
+        Loan _loan = GetLoanBy();
+
+        if(false == LoanExists)
+        {
+           return;  
+        }
+        else if(msg.sender == Products[Offers[offerId].LoanId].owner)
         {
             status = LoanStatus.Returned;
         }
-        else if(//not Exists offer)
+        /*else if(//not Exists offer)
         {
-            AddLoan(offerPos,startTime,endTime,msg.sender, LoanStatus.Booked);        
+                
         }
         else if(//Exists offer user != owner )
         {
             status = LoanStatus.Lent;
-        }       
+        }  */     
     }
 
-    function GetLoanBy(offerPos,startTime,endTime) public view returns (Loan)
+    function GetLoanBy(uint offerId, string startTime, string endTime) public view returns (Loan)
     {
+        for(uint i = 0; i < LoansCount; i++)
+        {
+            Loan storage l = Loans[i];
+            if(l.OfferId == offerId && compareStrings(l.Start,startTime) && compareStrings(l.End,endTime))
+            {
+                return l;
+            } 
+        }
+    }
 
-    }*/
+    function ExistLoanBy(uint offerId, string startTime, string endTime) public view returns (bool)
+    {
+        for(uint i = 0; i < LoansCount; i++)
+        {
+            Loan memory l = Loans[i];
+            if(l.OfferId == offerId && compareStrings(l.Start,startTime) && compareStrings(l.End,endTime))
+            {
+                return true;
+            }
+            return false;
+        }
+    }
 
     function GetOfferCount() public view returns (uint){
         return OffersCount; 
@@ -146,4 +174,8 @@ contract ProductsBlob{
         return LoansCount; 
     }
     
+    function compareStrings (string a, string b) public view returns (bool)
+    {
+        return keccak256(a) == keccak256(b);
+    }
 }
