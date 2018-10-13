@@ -1,15 +1,19 @@
+// Simualtion Ausleihe
+// Vorbereitung
 truffle console
 var tickit
 ProductsBlob.deployed().then(function(deployed){tickit=deployed;})
 
 
+
+// Produkt anzeigen
 tickit.GetOfferBy.call(3)
 
-tickit.GetLoanCount.call()
+// Reservierung
 tickit.Reserve(3,"1.12.2018","12.12.2018")
-tickit.GetLoanCount.call()
 tickit.GetLoanBy.call(0)
 
-
+// Übergabe
 tickit.PassOn(3,"1.12.2018","12.12.2018")
 tickit.GetLoanBy.call(0)
+
