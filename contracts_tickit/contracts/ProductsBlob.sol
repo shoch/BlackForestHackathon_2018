@@ -1,7 +1,7 @@
 //solium-disable linebreak-style
 //solium-disable max-len
 
-pragma experimental ABIEncoderV2;
+//pragma experimental ABIEncoderV2;
 pragma solidity ^0.4.4;
 
 contract ProductsBlob{
@@ -106,6 +106,11 @@ contract ProductsBlob{
         return (p.ProductId, p.ProductName,p.Owner);
     }
 
+    function GetLoanBy(uint loanId) public view returns (string, string, address, LoanStatus){    
+        Loan memory l = Loans[loanId];
+        return (l.Start,l.End,l.User,l.Status);
+    }
+
     function Reserve(uint offerId, string startTime, string endTime) public
     {
         // todo check times wrong add / check it outside?
@@ -114,8 +119,10 @@ contract ProductsBlob{
 
     function PassOn(uint offerId, string startTime, string endTime) public  //secret als param; User auslesen
     {  
-       /* bool LoanExists = ExistLoanBy(offerId, startTime, endTime);
-        Loan storage _loan = GetLoanBy(offerId, startTime, endTime);
+        bool LoanExists = ExistLoanBy(offerId, startTime, endTime);
+      
+        uint loanId = GetLoanBy(offerId, startTime, endTime);
+        Loan storage _loan = Loans[loanId];
 
         if(false == LoanExists)
         {
@@ -141,17 +148,18 @@ contract ProductsBlob{
         else if(status == LoanStatus.Booked )
         {
         // Todo weiterer USer (nicht an Owner)
-        }   */    
+        }     
     }
 
-    function GetLoanBy(uint offerId, string startTime, string endTime) public view returns (Loan)
+    function GetLoanBy(uint offerId, string startTime, string endTime) public view returns (uint)
     {
         for(uint i = 0; i < LoansCount; i++)
         {
             Loan storage l = Loans[i];
             if(l.OfferId == offerId && compareStrings(l.Start,startTime) && compareStrings(l.End,endTime))
             {
-                return l;
+               // return l;
+                return l.LoanId;
             } 
         }
     }
