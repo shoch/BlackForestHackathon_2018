@@ -5,6 +5,7 @@ ProductsBlob.deployed().then(function(deployed){tickit=deployed;})
 
 tickit.GetOfferBy.call(3)
 
+tickit.GetLoanCount.call()
 tickit.Reserve(3,"1.12.2018","12.12.2018")
 tickit.GetLoanCount.call()
 tickit.GetLoanBy.call(0)
