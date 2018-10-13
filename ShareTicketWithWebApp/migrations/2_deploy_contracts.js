@@ -1,5 +1,12 @@
-var ShareTicket = artifacts.require("./ShareTicket.sol");
+var products = artifacts.require("./Products.sol");
+var product = artifacts.require("./Product.sol");
+var offer = artifacts.require("./offer.sol");
+var loan = artifacts.require("./loan.sol");
+
 
 module.exports = function(deployer) { 
-  deployer.deploy(ShareTicket); 
+  deployer.deploy(products); 
+  deployer.deploy(product); 
+  deployer.deploy(offer); 
+  deployer.deploy(loan); 
 };

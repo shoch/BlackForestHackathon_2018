@@ -1,30 +1,35 @@
-var ShareTicket = artifacts.require("./ShareTicket.sol");
+var Products = artifacts.require("./Products.sol");
 
-contract("ShareTicket",
+contract("Products",
     function(accounts) {
-        var shareTicketInstance;
+        var productstInstance;
 
-        it("it initializes with two tickets",
+        it("it initializes with two offers",
             function () {
-                return ShareTicket.deployed().then(function (instance) {
-                    shareTicketInstance = instance;
-                    return shareTicketInstance.GetTicketCount();
+                return Products.deployed().then(function (instance) {
+                    productstInstance = instance;
+                    return productstInstance.GetOffersCount();
                 }).then(function (retunValue) {
+                    console.log("------");
+                    console.log(retunValue);
                     assert.equal(retunValue, 2);
                 });
             });
 
 
 
-        it("it initializes the ticket 0 with the correct TicketOwner", function () {
-            return ShareTicket.deployed().then(function (instance) {
-                shareTicketInstance = instance;
-                return shareTicketInstance.GetTicketOwner(0);
+        it("it initializes the offer 0 with the correct", function () {
+            return Products.deployed().then(function (instance) {
+                productstInstance = instance;
+                return productstInstance.GetOfferBy(0);
             }).then(function (retunValue) {
-                assert.equal(retunValue, "0xce67e2ab70671e5d0b8499c07e2e6cdb6f75ed12");
+                console.log("------");
+                console.log(retunValue);
+                //assert.equal(retunValue, "0xce67e2ab70671e5d0b8499c07e2e6cdb6f75ed12");
             });
         });
 
+        /*
         it("it initializes the ticket 0 with the correct TicketName", function () {
             return ShareTicket.deployed().then(function (instance) {
                 shareTicketInstance = instance;
@@ -97,6 +102,7 @@ contract("ShareTicket",
                 assert.equal(retunValue.c[0], 1539598254);
             });
         });
+        */
     });
 
 //AddNewTicket(0xce67e2ab70671e5d0b8499c07e2e6cdb6f75ed12, "KVV Karte 2 Waben Monat", 1538388654, 1540980654, 1540548654);
