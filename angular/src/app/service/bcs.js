@@ -72,11 +72,11 @@ BCS = {
     return offers;
   },
   
-  passOn: async function(offerId,loanStart,loanEnd,secret){  
+  passOn: async function(offerId,loanStart,loanEnd){  
     var productsInstance;
     return BCS.contracts.Products.deployed().then(function (instance) {
       productsInstance = instance;
-      return productsInstance.PassOn(offerId,loanStart,loanEnd,secret);});         
+      return productsInstance.PassOn(offerId,loanStart,loanEnd);});         
   },  
 
   // Products -----------------------------------------
