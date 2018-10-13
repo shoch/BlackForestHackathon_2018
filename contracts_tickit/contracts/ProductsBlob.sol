@@ -111,30 +111,37 @@ contract ProductsBlob{
         AddLoan(offerId, startTime, endTime, msg.sender, LoanStatus.Booked);   
     }
 
-    function PassOn(uint offerId, address startTime, string endTime) public  //secret als param; User auslesen
+    function PassOn(uint offerId, string startTime, string endTime) public  //secret als param; User auslesen
     {
         // alter user 
         // Lent
-       /* LoanStatus status;
-        bool LoanExists = ExistLoanBy(offerId,startTime,endTime);
-        Loan _loan = GetLoanBy();
+        
+        bool LoanExists = ExistLoanBy(offerId, startTime, endTime);
+        Loan storage _loan = GetLoanBy(offerId, startTime, endTime);
 
         if(false == LoanExists)
         {
-           return;  
+            return;  
         }
-        else if(msg.sender == Products[Offers[offerId].LoanId].owner)
+
+        LoanStatus status = _loan.Status;
+        if(status == LoanStatus.Booked)
         {
-            status = LoanStatus.Returned;
+            _loan.Status = LoanStatus.Lent;
+            _loan.User = msg.sender;
         }
-        /*else if(//not Exists offer)
+        else if(status == LoanStatus.Lent && _loan.User == Products[Offers[offerId].ProductId].Owner)
         {
-                
+            _loan.Status = LoanStatus.Returned;
+            _loan.User = msg.sender;
         }
-        else if(//Exists offer user != owner )
+        else if(status == LoanStatus.Lent && _loan.User == Products[Offers[offerId].ProductId].Owner)
         {
-            status = LoanStatus.Lent;
-        }  */     
+            _loan.Status = LoanStatus.Returned;
+            _loan.User = msg.sender;
+        }
+        // Todo weiterer USer (nicht an Owner)
+       
     }
 
     function GetLoanBy(uint offerId, string startTime, string endTime) public view returns (Loan)
