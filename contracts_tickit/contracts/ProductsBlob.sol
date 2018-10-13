@@ -19,9 +19,7 @@ contract ProductsBlob{
         AddOffer(1,"1.10.2018","1.1.2019",10);
         AddOffer(2,"1.10.2018","29.04.2019",7);
         AddOffer(3,"3.10.2018","12.10.2018",2000);
-    } 
-
-    
+    }    
 
     struct Loan{
         //uint ProductId;
@@ -45,8 +43,7 @@ contract ProductsBlob{
         uint  ProductId; 
         string ProductName;
         address Owner;                
-    }
-    
+    }    
 
     mapping (uint => Product) Products;  
     uint ProductsCount;
@@ -97,7 +94,7 @@ contract ProductsBlob{
 
     function GetOfferBy(uint posOffer) public view returns (uint, uint, address, string, string, string){    
         Offer memory o = Offers[posOffer];
-        Product memory p = Products[o.OfferId];
+        Product memory p = Products[o.ProductId];
 
         return (o.ProductId, o.OfferId, p.Owner, p.ProductName, o.Start, o.End);
     }
