@@ -1,0 +1,10 @@
+<ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
+  <ngb-panel *ngFor="let offer of offers">
+    <ng-template ngbPanelTitle>
+      <app-offer [offer]="offer"></app-offer>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <app-product [id]="offer.productId"></app-product>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
