@@ -30,3 +30,5 @@ node_modules
 ShareTicket/bin/
 
 ShareTicket/build/
+
+contracts_tickit/build/
