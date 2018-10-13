@@ -138,7 +138,7 @@ contract ProductsBlob{
             _loan.Status = LoanStatus.Returned;
             _loan.User = msg.sender;
         }
-        else if(status == LoanStatus.Booked &&)
+        else if(status == LoanStatus.Booked )
         // Todo weiterer USer (nicht an Owner)
        
     }
