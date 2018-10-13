@@ -114,7 +114,7 @@ contract ProductsBlob{
 
     function PassOn(uint offerId, string startTime, string endTime) public  //secret als param; User auslesen
     {  
-        bool LoanExists = ExistLoanBy(offerId, startTime, endTime);
+       /* bool LoanExists = ExistLoanBy(offerId, startTime, endTime);
         Loan storage _loan = GetLoanBy(offerId, startTime, endTime);
 
         if(false == LoanExists)
@@ -123,7 +123,7 @@ contract ProductsBlob{
         }
 
         LoanStatus status = _loan.Status;
-        if(status == LoanStatus.Booked && LentedProductExists())
+        if(status == LoanStatus.Booked) // todo && LentedProductExists())
         {
             _loan.Status = LoanStatus.Lent;
             _loan.User = msg.sender;
@@ -139,8 +139,9 @@ contract ProductsBlob{
             _loan.User = msg.sender;
         }
         else if(status == LoanStatus.Booked )
+        {
         // Todo weiterer USer (nicht an Owner)
-       
+        }   */    
     }
 
     function GetLoanBy(uint offerId, string startTime, string endTime) public view returns (Loan)
