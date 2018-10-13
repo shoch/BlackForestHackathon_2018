@@ -108,14 +108,12 @@ contract ProductsBlob{
 
     function Reserve(uint offerId, string startTime, string endTime) public
     {
+        // todo check times wrong add / check it outside?
         AddLoan(offerId, startTime, endTime, msg.sender, LoanStatus.Booked);   
     }
 
     function PassOn(uint offerId, string startTime, string endTime) public  //secret als param; User auslesen
-    {
-        // alter user 
-        // Lent
-        
+    {  
         bool LoanExists = ExistLoanBy(offerId, startTime, endTime);
         Loan storage _loan = GetLoanBy(offerId, startTime, endTime);
 
@@ -125,7 +123,7 @@ contract ProductsBlob{
         }
 
         LoanStatus status = _loan.Status;
-        if(status == LoanStatus.Booked)
+        if(status == LoanStatus.Booked && LentedProductExists())
         {
             _loan.Status = LoanStatus.Lent;
             _loan.User = msg.sender;
@@ -140,6 +138,7 @@ contract ProductsBlob{
             _loan.Status = LoanStatus.Returned;
             _loan.User = msg.sender;
         }
+        else if(status == LoanStatus.Booked &&)
         // Todo weiterer USer (nicht an Owner)
        
     }
@@ -181,6 +180,7 @@ contract ProductsBlob{
         return LoansCount; 
     }
     
+    // todo: fix Remember: hash collisions are possible 
     function compareStrings (string a, string b) public view returns (bool)
     {
         return keccak256(a) == keccak256(b);
