@@ -28,7 +28,7 @@ export class OfferComponent implements OnInit {
 
   getOffer(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.offerService.getOffer(11)
+    this.offerService.getOffer(id)
       .subscribe(offer => this.offer = offer);
   }
 }

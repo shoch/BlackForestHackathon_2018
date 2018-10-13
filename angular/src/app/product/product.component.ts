@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 import {Location} from '@angular/common';
 import {Product} from '../core/models/product.model';
 import {ProductService} from '../core/services/product.service';
@@ -11,6 +11,7 @@ import {ProductService} from '../core/services/product.service';
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product;
+  @Input() productId: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +27,7 @@ export class ProductComponent implements OnInit {
   }
 
   getProduct(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = (this.productId !== undefined) ? this.productId : +this.route.snapshot.paramMap.get('id');
     this.productService.getProduct(id)
       .subscribe(product => this.product = product);
   }

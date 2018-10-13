@@ -1,3 +1,4 @@
+
 export class Offer {
   id: number;
   productId: number;

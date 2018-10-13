@@ -1,3 +1,9 @@
-<p>
-  loan works!
-</p>
+<div class="container" *ngIf="loan">
+  <div class="row">
+    <div class="col-sm"><span>id:</span> {{loan.id}}</div>
+    <div class="col-sm"><span>productId:</span> {{loan.loanedAt}}</div>
+    <div class="col-sm"><span>start:</span> {{loan.returnedAt}}</div>
+    <div class="col-sm"><span>end:</span> {{loan.status}}</div>
+    <div class="col-sm"><button class="btn btn-light">Übergabe bestätigen</button></div>
+  </div>
+</div>

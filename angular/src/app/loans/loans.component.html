@@ -1,3 +1,9 @@
-<p>
-  loans works!
-</p>
+<h2>Meine Verleihungen</h2>
+<div *ngFor="let loan of loaned">
+  <app-loan [loan]="loan" [wallet]="wallet"></app-loan>
+</div>
+
+<h2>Meine Leihungen</h2>
+<div *ngFor="let loan of loans">
+  <app-loan [loan]="loan" [wallet]="wallet"></app-loan>
+</div>
