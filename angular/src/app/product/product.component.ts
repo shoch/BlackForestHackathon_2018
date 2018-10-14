@@ -10,7 +10,7 @@ import {ProductService} from '../core/services/product.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  @Input() product: Product;
+  product: Product;
   @Input() productId: number;
 
   constructor(
@@ -21,13 +21,11 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.product === undefined) {
-      this.getProduct();
-    }
+    this.getProduct();
   }
 
   getProduct(): void {
-    const id = (this.productId !== undefined) ? this.productId : +this.route.snapshot.paramMap.get('id');
+    const id = this.productId;
     this.productService.getProduct(id)
       .subscribe(product => this.product = product);
   }

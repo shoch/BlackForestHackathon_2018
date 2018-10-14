@@ -17,13 +17,11 @@ export class ProductService {
     // TODO: send the message _after_ fetching the heroes
     this.messageService.add('ProductService: fetched offers');
     return of(PRODUCTS);
- 
   }
 
   getProduct(id: number): Observable<Product> {
     // TODO: send the message _after_ fetching the hero
     this.messageService.add(`ProductService: fetched offer id=${id}`);
     return of(PRODUCTS.find(product => product.id === id));
-   
   }
 }

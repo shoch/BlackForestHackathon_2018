@@ -1,9 +1,17 @@
 import {Injectable} from '@angular/core';
+
+@Injectable()
+export class Web3Service {}
+
+
+/*
+import {Injectable} from '@angular/core';
 import * as contract from 'truffle-contract';
 import {Subject} from 'rxjs';
+
 declare let require: any;
 //import * as Web3 from 'web3';
-const Web3 = require('web3');
+//const Web3 = require('web3');
 const myContraProducstBlob = require('../../../../build/contracts/ProductsBlob.json');
 
 
@@ -36,13 +44,13 @@ export class Web3Service {
       Web3.providers.HttpProvider.prototype.sendAsync = Web3.providers.HttpProvider.prototype.send;
       // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
       this.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
-      
-     
+
+
     }
 
     this.ProductsBlob = this.artifactsToContract(myContraProducstBlob);
-    var test = this.ProductsBlob.getOfferCount();
-    
+    //var test = this.ProductsBlob.getOfferCount();
+
     setInterval(() => this.refreshAccounts(), 100);
   }
 
@@ -84,3 +92,5 @@ export class Web3Service {
     });
   }
 }
+
+ */
