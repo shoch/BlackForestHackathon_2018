@@ -10,11 +10,13 @@ import {Web3Service} from './web3.services';
 @Injectable({providedIn: 'root'})
 export class OfferService {
 
+  private web3: Web3Service = new Web3Service();
+
   constructor(private messageService: MessageService) {
   }
 
    getOffers(): Observable<Offer[]> {
-    // TODO: send the message _after_ fetching the heroes
+    // TODO: send the message _after_ fetching the heroes    
      this.messageService.add('OfferService: fetched offers');
     return of(OFFERS);
    
