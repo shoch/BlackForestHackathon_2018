@@ -1,0 +1,104 @@
+{
+  "contractName": "Loan",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a723058203cbe56f16db084cfb6c0ec08ea3ab3abc4f2e4166cba29ee8963ee67c4e213060029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a723058203cbe56f16db084cfb6c0ec08ea3ab3abc4f2e4166cba29ee8963ee67c4e213060029",
+  "sourceMap": "89:17:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;89:17:0;;;;;;;",
+  "deployedSourceMap": "89:17:0:-;;;;;",
+  "source": "//solium-disable linebreak-style\r\n//solium-disable max-len\r\n\r\npragma solidity ^0.4.4;\r\n\r\ncontract Loan{\r\n}",
+  "sourcePath": "C:\\Users\\sebih\\Documents\\BlackForestHackathon_2018\\BlackForestHackathon_Project\\BlackForestHackathon_2018\\contracts_tickit\\contracts\\Loan.sol",
+  "ast": {
+    "absolutePath": "/C/Users/sebih/Documents/BlackForestHackathon_2018/BlackForestHackathon_Project/BlackForestHackathon_2018/contracts_tickit/contracts/Loan.sol",
+    "exportedSymbols": {
+      "Loan": [
+        2
+      ]
+    },
+    "id": 3,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "62:23:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2,
+        "linearizedBaseContracts": [
+          2
+        ],
+        "name": "Loan",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 3,
+        "src": "89:17:0"
+      }
+    ],
+    "src": "62:44:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/Users/sebih/Documents/BlackForestHackathon_2018/BlackForestHackathon_Project/BlackForestHackathon_2018/contracts_tickit/contracts/Loan.sol",
+    "exportedSymbols": {
+      "Loan": [
+        2
+      ]
+    },
+    "id": 3,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "62:23:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2,
+        "linearizedBaseContracts": [
+          2
+        ],
+        "name": "Loan",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 3,
+        "src": "89:17:0"
+      }
+    ],
+    "src": "62:44:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {
+    "1539409261038": {
+      "events": {},
+      "links": {},
+      "address": "0x9a83cfe894c9cd7849cbf81c171a55af847dfd45",
+      "transactionHash": "0x3fb7a4b5b3c6fcc3d06ae98e51829695ae386882d0c2917396e994906ca2b0af"
+    }
+  },
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-10-13T10:10:24.143Z"
+}
