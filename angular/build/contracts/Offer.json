@@ -1,0 +1,104 @@
+{
+  "contractName": "Offer",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820fa16e71af81c2c29180dcacbc33108e01cf7c8a42751dc5a6086c2cc2420eadd0029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820fa16e71af81c2c29180dcacbc33108e01cf7c8a42751dc5a6086c2cc2420eadd0029",
+  "sourceMap": "89:18:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;89:18:2;;;;;;;",
+  "deployedSourceMap": "89:18:2:-;;;;;",
+  "source": "//solium-disable linebreak-style\r\n//solium-disable max-len\r\n\r\npragma solidity ^0.4.4;\r\n\r\ncontract Offer{\r\n}",
+  "sourcePath": "C:\\Users\\sebih\\Documents\\BlackForestHackathon_2018\\BlackForestHackathon_Project\\BlackForestHackathon_2018\\contracts_tickit\\contracts\\Offer.sol",
+  "ast": {
+    "absolutePath": "/C/Users/sebih/Documents/BlackForestHackathon_2018/BlackForestHackathon_Project/BlackForestHackathon_2018/contracts_tickit/contracts/Offer.sol",
+    "exportedSymbols": {
+      "Offer": [
+        62
+      ]
+    },
+    "id": 63,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 61,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "62:23:2"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 62,
+        "linearizedBaseContracts": [
+          62
+        ],
+        "name": "Offer",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 63,
+        "src": "89:18:2"
+      }
+    ],
+    "src": "62:45:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/Users/sebih/Documents/BlackForestHackathon_2018/BlackForestHackathon_Project/BlackForestHackathon_2018/contracts_tickit/contracts/Offer.sol",
+    "exportedSymbols": {
+      "Offer": [
+        62
+      ]
+    },
+    "id": 63,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 61,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "62:23:2"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 62,
+        "linearizedBaseContracts": [
+          62
+        ],
+        "name": "Offer",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 63,
+        "src": "89:18:2"
+      }
+    ],
+    "src": "62:45:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {
+    "1539409261038": {
+      "events": {},
+      "links": {},
+      "address": "0x8bacd951b573bc2b5d03bc08f94dfc8f030c254b",
+      "transactionHash": "0x6fb230dab4891fda9f7557cda84957044c97d9c6ef00e732607461517278b530"
+    }
+  },
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-10-13T10:10:24.154Z"
+}
