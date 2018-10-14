@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { Observable, of } from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {MessageService} from '../models/message.service';
 import {PRODUCTS} from '../mock/products';
 import {Product} from '../models/product.model';

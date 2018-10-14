@@ -1,17 +1,17 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { Observable, of } from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {OFFERS} from '../mock/offers';
 import {Offer} from '../models/offer.model';
 import {MessageService} from '../models/message.service';
 
 import {Web3Service} from './web3.services';
 
-@Injectable({ providedIn: 'root' })
-export class OfferService {  
+@Injectable({providedIn: 'root'})
+export class OfferService {
 
-  constructor(private messageService: MessageService) {       
-   }
+  constructor(private messageService: MessageService) {
+  }
 
    getOffers(): Observable<Offer[]> {
     // TODO: send the message _after_ fetching the heroes
