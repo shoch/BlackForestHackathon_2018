@@ -32,12 +32,12 @@ export class LoanService {
   getLoansOfLoanee(wallet: string): Observable<Loan[]> {
     // TODO: send the message _after_ fetching the hero
     this.messageService.add(`LoanService: fetched offer id=${wallet}`);
-    return of(LOANS.filter(loan => loan.loanee === wallet));
+    return of(LOANS.filter(loan => loan.id % 2 === 0));
   }
 
   getLoansOfLoaner(wallet: string): Observable<Loan[]> {
     // TODO: send the message _after_ fetching the hero
     this.messageService.add(`LoanService: fetched offer id=${wallet}`);
-    return of(LOANS.filter(loan => loan.loanee === wallet));
+    return of(LOANS.filter(loan => loan.id  % 2 === 1));
   }
 }
