@@ -23,4 +23,11 @@ export class OfferService {
     this.messageService.add(`OfferService: fetched offer id=${id}`);
     return of(OFFERS.find(offer => offer.id === id));
   }
+
+  searchOffer(productName: string, geolocation: string, start: string, end: string) {
+    if (!('offenburg'.includes(geolocation.toLocaleLowerCase())) || !('the hammer'.includes(productName.toLocaleLowerCase()))) {
+      return of([]);
+    }
+    return of(OFFERS);
+  }
 }
