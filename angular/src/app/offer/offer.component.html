@@ -1,10 +1,10 @@
 <div class="container" *ngIf="offer">
   <div class="row">
-    <div class="col-sm"><span>id:</span> {{offer.id}}</div>
-    <div class="col-sm"><span>productId:</span> {{offer.productId}}</div>
-    <div class="col-sm"><span>start:</span> {{offer.start}}</div>
-    <div class="col-sm"><span>end:</span> {{offer.end}}</div>
-    <div class="col-sm"><span>ppd:</span> {{offer.ppd}}</div>
+    <div class="col-sm">#{{offer.id}}</div>
+    <div class="col-sm">Offeburg</div>
+    <div class="col-sm">{{offer.start}}</div>
+    <div class="col-sm">{{offer.end}}</div>
+    <div class="col-sm">{{offer.ppd}} €/Tag</div>
     <div class="col-sm"><button class="btn btn-light">Reservieren</button></div>
   </div>
 </div>

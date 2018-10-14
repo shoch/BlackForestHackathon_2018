@@ -4,4 +4,6 @@ export class Loan {
   loanedAt: string;
   returnedAt: string;
   loanee: string;
+  isLoanee: string;
+  isLoaner: string;
 }

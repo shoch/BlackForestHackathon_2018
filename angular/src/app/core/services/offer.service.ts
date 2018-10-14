@@ -15,17 +15,14 @@ export class OfferService {
   constructor(private messageService: MessageService) {
   }
 
-   getOffers(): Observable<Offer[]> {
-    // TODO: send the message _after_ fetching the heroes    
-     this.messageService.add('OfferService: fetched offers');
+  getOffers(): Observable<Offer[]> {
+    this.messageService.add('OfferService: fetched offers');
     return of(OFFERS);
-   
   }
 
   getOffer(id: number): Observable<Offer> {
     // TODO: send the message _after_ fetching the hero
     this.messageService.add(`OfferService: fetched offer id=${id}`);
     return of(OFFERS.find(offer => offer.id === id));
-   
   }
 }

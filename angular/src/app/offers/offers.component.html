@@ -1,5 +1,36 @@
-<ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
-  <ngb-panel *ngFor="let offer of offers">
+<form class="form-inline" style="padding: 0px 20px;">
+  <div class="form-group  mx-auto">
+    <div class="input-group w-25 mx-auto" style="padding: 0px 5px;">
+      <input #productName placeholder="Produkt Name" id="search-box-productName"
+             (keyup)="search(productName.value, geolocation.value, start.value, end.value)"/>
+    </div>
+    <div class="input-group w-25 mx-auto" style="padding: 0px 5px;">
+      <input #geolocation placeholder="Ort" id="search-box-geolocation"
+             (keyup)="search(productName.value, geolocation.value, start.value, end.value)"/>
+    </div>
+    <div class="input-group w-25 mx-auto" style="padding: 0px 5px;">
+      <input #start class="form-control" placeholder="yyyy-mm-dd"
+             name="dp" ngbDatepicker #d="ngbDatepicker"
+             (onchange)="search(productName.value, geolocation.value, start.value, end.value)">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+      </div>
+    </div>
+    <div class="input-group w-25 mx-auto" style="padding: 0px 5px;">
+      <input #end class="form-control" placeholder="yyyy-mm-dd"
+             name="dp" ngbDatepicker #endDate="ngbDatepicker"
+             (onchange)="search(productName.value, geolocation.value, start.value, end.value)">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary calendar" (click)="endDate.toggle()" type="button"></button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<hr>
+
+<ngb-accordion #acc="ngbAccordion" [closeOthers]="true" class="search-result">
+  <ngb-panel *ngFor="let offer of offers$ | async">
     <ng-template ngbPanelTitle>
       <app-offer [offer]="offer"></app-offer>
     </ng-template>

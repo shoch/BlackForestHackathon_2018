@@ -1,9 +1,10 @@
 <div class="container" *ngIf="loan">
   <div class="row">
-    <div class="col-sm"><span>id:</span> {{loan.id}}</div>
-    <div class="col-sm"><span>productId:</span> {{loan.loanedAt}}</div>
-    <div class="col-sm"><span>start:</span> {{loan.returnedAt}}</div>
-    <div class="col-sm"><span>end:</span> {{loan.status}}</div>
+    <div class="col-sm"><span class="badge badge-primary" *ngIf="loan.isLoanee">Verliehen</span></div>
+    <div class="col-sm"><span class="badge badge-secondary" *ngIf="loan.isLoaner">Geliehen</span></div>
+    <div class="col-sm" *ngIf="loan.loanedAt">{{loan.loanedAt}}</div>
+    <div class="col-sm" *ngIf="loan.returnedAt">{{loan.returnedAt}}</div>
+    <div class="col-sm">{{loan.status}}</div>
     <div class="col-sm"><button class="btn btn-light">Übergabe bestätigen</button></div>
   </div>
 </div>
