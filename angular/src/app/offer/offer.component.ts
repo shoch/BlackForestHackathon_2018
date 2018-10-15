@@ -3,7 +3,7 @@ import {Offer} from '../core/models/offer.model';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {OfferService} from '../core/services/offer.service';
-import {start} from 'repl';
+//import {start} from 'repl';
 
 @Component({
   selector: 'app-offer',
